@@ -1,0 +1,36 @@
+<html>
+<head></head>
+<link rel="stylesheet" href= "eventwebpage.css">
+<body>
+    <header>
+        <h1>Contact</h1>
+        <p>The Ultimate Technology and Programming Conference</p>
+    </header>
+
+
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <form onsubmit="return getInfo(event)">
+
+        <label for="name">Name:</label><br>
+        <input type="text" required id="Username" pattern="[A-Za-z\s]+" title="Name can only contain letters and spaces." required><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required pattern="[a-z0-9_.]+@[a-z]+.[a-z]{2,}"><br><br>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4"></textarea><br><br>
+
+      <button  type="submit">Send</button>
+      </form>
+      </section>
+      
+        <script>
+    function getInfo(event) {
+     event.preventDefault(); 
+      const info = "You will receive an email shortly";
+      document.getElementById("contact").innerHTML=info;
+    
+    }
+  </script>
+</body>
+</html>

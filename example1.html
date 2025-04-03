@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form with Excel Export</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Form Styling */
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .container button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Login</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2>Login Form</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Save Login Details</button>
+        </form>
+    </div>
+
+    <!-- Include SheetJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+
+    <script>
+        // Function to store login details in localStorage
+        function storeLoginData(username, password) {
+            let loginData = JSON.parse(localStorage.getItem("loginDetails")) || [];
+            loginData.push({ Username: username, Password: password });
+            localStorage.setItem("loginDetails", JSON.stringify(loginData));
+        }
+
+        // Function to generate Excel file
+        function generateExcel() {
+            const loginData = JSON.parse(localStorage.getItem("loginDetails")) || [];
+            const wb = XLSX.utils.book_new();
+            const ws = XLSX.utils.json_to_sheet(loginData);
+            XLSX.utils.book_append_sheet(wb, ws, "Login Details");
+
+            // Trigger the download of the Excel file
+            XLSX.writeFile(wb, "login_details.xlsx");
+        }
+
+        // Handle form submission to store login details
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();  // Prevent the form from submitting normally
+
+            // Get form data (username and password)
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Store login data in localStorage
+            storeLoginData(username, password);
+
+            // Generate and download the Excel file
+            generateExcel();
+
+            // Clear form fields
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+
+            // Notify user
+            alert("Login Successful");
+        });
+    </script>
+</body>
+</html>

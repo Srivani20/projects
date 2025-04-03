@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website with Header, Footer, and Forms</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+   <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #333;
+  padding: 20px 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.navbar .logo {
+  color: white;
+  font-size: 24px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  padding: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+nav ul li a:hover {
+  background-color: #575757;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+main {
+  padding: 20px;
+}
+
+h1, h2 {
+  color: #333;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+form input,
+form textarea,
+form button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background-color: #3c8dbc;
+  color: white;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #357ab7;
+}
+
+#login-signup .toggle-switch {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.toggle-input {
+  display: none;
+}
+
+.toggle-label {
+  display: flex;
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  background-color: #ddd;
+  border-radius: 50px;
+  padding: 5px;
+  justify-content: space-between;
+}
+
+.toggle-label-text {
+  width: 50%;
+  text-align: center;
+  padding: 5px;
+  color: #fff;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.toggle-input:checked + .toggle-label .toggle-label-text:nth-child(1) {
+  background-color: #ccc;
+  transform: translateX(-100%);
+}
+
+.toggle-input:checked + .toggle-label .toggle-label-text:nth-child(2) {
+  background-color: #3c8dbc;
+  transform: translateX(100%);
+}
+
+.form-container {
+  display: none;
+}
+
+.form-container.active {
+  display: block;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+footer p {
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+   </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="navbar">
+      <div class="logo">My Website</div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#login-signup" id="login-signup-link">Login/Sign Up</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Home Section -->
+    <section id="home">
+      <h1>Welcome to My Website</h1>
+      <p>This is a simple website layout with a navigation bar, services section, contact form, and login/sign up functionality.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+      <h2>Our Services</h2>
+      <ul>
+        <li>Web Development</li>
+        <li>App Development</li>
+        <li>SEO Optimization</li>
+        <li>Digital Marketing</li>
+      </ul>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <!-- Login/Sign Up Section -->
+    <section id="login-signup" class="hidden">
+      <div class="toggle-switch">
+        <input type="checkbox" id="toggle" class="toggle-input">
+        <label for="toggle" class="toggle-label">
+          <span class="toggle-label-text">Login</span>
+          <span class="toggle-label-text">Sign Up</span>
+        </label>
+      </div>
+
+      <div id="login-form" class="form-container active">
+        <h2>Login</h2>
+        <form>
+          <input type="text" placeholder="Username" required>
+          <input type="password" placeholder="Password" required>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+
+      <div id="signup-form" class="form-container">
+        <h2>Sign Up</h2>
+        <form>
+          <input type="text" placeholder="Username" required>
+          <input type="email" placeholder="Email" required>
+          <input type="password" placeholder="Password" required>
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 My Website. All rights reserved.</p>
+  </footer>
+  <script>
+    document.getElementById('toggle').addEventListener('change', function() {
+  const loginForm = document.getElementById('login-form');
+  const signupForm = document.getElementById('signup-form');
+
+  if (this.checked) {
+    loginForm.classList.remove('active');
+    signupForm.classList.add('active');
+  } else {
+    signupForm.classList.remove('active');
+    loginForm.classList.add('active');
+  }
+});
+
+  </script>
+
+  <!-- <script src="script.js"></script> -->
+</body>
+</html>

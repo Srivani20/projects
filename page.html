@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save Login Details Silently to Excel</title>
+</head>
+<body>
+    <h2>Login Form</h2>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+        <button type="submit">Save Login Details</button>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+
+    <script>
+        // Function to store login details in localStorage
+        function storeLoginData(username, password) {
+            let loginData = JSON.parse(localStorage.getItem("loginDetails")) || [];
+            loginData.push({ Username: username, Password: password });
+            localStorage.setItem("loginDetails", JSON.stringify(loginData));
+        }
+
+        // Function to generate Excel file and trigger automatic download
+        function generateExcelAndDownload(loginData) {
+            // Create an Excel workbook
+            const wb = XLSX.utils.book_new();
+            const ws = XLSX.utils.json_to_sheet(loginData);
+            XLSX.utils.book_append_sheet(wb, ws, "Login Details");
+
+            // Generate Excel file and trigger download silently (without visible UI)
+            XLSX.writeFile(wb, "login_details.xlsx");
+        }
+
+        // Handle form submission to store login details and generate Excel file
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();  // Prevent the form from submitting normally
+
+            // Get form data (username and password)
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Store login data in localStorage
+            storeLoginData(username, password);
+
+            // Generate and download the Excel file silently
+            const loginData = JSON.parse(localStorage.getItem("loginDetails")) || [];
+            generateExcelAndDownload(loginData);
+
+            // Clear form fields
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+
+            // Notify user (optional)
+            alert("Login Completed");
+        });
+    </script>
+</body>
+</html>

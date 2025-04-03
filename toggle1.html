@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Toggle</title>
+  <link rel="stylesheet" href="toggle.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Toggle Between Forms</h1>
+
+    <!-- Toggle Switch -->
+    <label class="switch">
+      <input type="checkbox" id="toggle">
+      <span class="slider"></span>
+    </label>
+
+    <!-- Form Wrapper -->
+    <div class="form-wrapper">
+      <!-- Form 1 -->
+      <div class="form" id="form1">
+        <form>
+          <input type="text" placeholder="Enter Name">
+          <br>
+          <input type="password" id="loginPassword" placeholder="Password" required><br>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+      <!-- Form 2 -->
+      <div class="form" id="form2">
+        
+        <form>
+          <!-- <input type="email" placeholder="Enter Email"> -->
+          <input type="text" id="signupUsername" placeholder="Username" required><br>
+                <input type="password" id="signupPassword" placeholder="Password" required><br>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required><br>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- <script src="script.js"></script> -->
+   <script>
+        const toggle = document.getElementById('toggle');
+        const form1 = document.getElementById('form1');
+        const form2 = document.getElementById('form2');
+
+        // Add event listener for the toggle switch
+        toggle.addEventListener('change', () => {
+            // Toggle active class on both forms
+            form1.classList.toggle('active');
+            form2.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

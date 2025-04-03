@@ -1,0 +1,247 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #050505;
+    background-color: #b6a7a7;
+    background-image: url('https://bkacontent.com/wp-content/uploads/2016/06/Depositphotos_31146757_l-2015.jpg');
+  }
+  
+ 
+  header {
+    background-color: #969090fb;
+    color: white;
+    padding: 1px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 1px auto;
+    display:block;
+    position:relative;
+  }
+
+ 
+.navigation ul {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0;
+    display: flex; 
+}
+
+.navigation li {
+    margin-left: 20px; 
+}
+
+.navigation a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    transition: background-color 0.3s ease; 
+}
+
+.navigation a:hover {
+    background-color: #555; 
+    border-radius: 4px;
+}
+  
+  
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  nav ul li {
+    margin-left: 130px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+  
+  nav ul li a:hover {
+    background-color: #575757;
+  }
+
+  
+
+.home-section {
+
+  text-align: center;
+  padding: 120px 0;
+  color: white;
+  background-color:  #00000000;
+}
+
+.home-section h1 {
+  font-size: 70px;
+  margin-bottom: 20px;
+
+}
+
+.home-section p {
+  font-size: 24px;
+}
+
+.home-section .btn-primary {
+  background-color: #3c8dbc;
+  color: white;
+  padding: 5px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.home-section .btn-primary:hover {
+  background-color: #357ab7;
+}
+  
+  
+
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  footer p {
+    margin: 0;
+    padding-top: 10px;
+  }
+  .dropdown {
+    float: center;
+    overflow: hidden;
+  }
+  
+  /* .dropdown .dropbtn {
+    font-size: 12px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font: inherit;
+    margin: 0;
+  } */
+  
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: rgb(0, 217, 255);
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    /* background-color:  #e9e0e0; */
+    width: 100%;
+    left: 0;
+    z-index: 1;
+  }
+  
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  
+  .column {
+    float: left;
+    width: 31.33%;
+    padding: 10px;
+    background-color: #f5e3e3fb;
+    height: 250px;
+  }
+  
+  .column a {
+    float: none;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .column a:hover {
+    background-color: #ddd;
+  }
+  
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+.footer {
+    background-color: #8cbdeb; 
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    background-image: url('https://bkacontent.com/wp-content/uploads/2016/06/Depositphotos_31146757_l-2015.jpg');
+  }
+
+
+.user-rating-section {
+    background-color: #13121200;
+    padding: 40px 0;
+    text-align: center;
+  }
+  
+  .user-rating-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color:#fff;
+  }
+  
+  .ratings {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .rating {
+    background-color: #8cbdeb;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    text-align: left;
+    font-size: 16px;
+  }
+  
+  .rating p {
+    margin: 10px 0;
+  }
+  
+  .rating span {
+    font-style: italic;
+    color: #020000;
+  }
+  
+  
+  .rating:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+
+.footer p {
+    margin: 0;
+}

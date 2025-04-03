@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 60px auto;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 5 5 50px rgba(16, 197, 16, 0.1);
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 0px;
+        }
+
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin: 30px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .container button:hover {
+            background-color: #555;
+        }
+.input-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 0%;
+  margin-top: 0;
+  align-items: center;
+}
+
+.icon {
+  padding: 20px;
+  background: rgb(69, 160, 99);
+  color:white;
+text-align: center;
+margin:auto;
+}
+
+.input-field {
+  padding: 20px;
+  outline: none;
+  border-radius:5px;
+  height: 15x;
+  margin:auto;
+ 
+
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+.signup-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .signup-link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }        
+        
+        </style>
+        
+</head>
+<body>
+    <div class="container">
+    <h2>Login Form</h2>
+    <form id="loginForm">
+        <!-- <label for="username">Username:</label> -->
+        <div class="input-container">
+            <i class="fa fa-user icon"></i>
+        <input class="input-field" type="text" id="username" name="username" placeholder="Username" required>
+        </div>
+        <!-- <label for="password">Password:</label> -->
+        <div class="input-container">
+            <i class="fa fa-key icon"></i>
+        <input class="input-field" type="password" id="password" name="password" placeholder="Password" required>
+        <br><br>
+        </div>
+        <button type="submit">Save Login Details</button>
+    </form>
+    <div class="signup-link">
+        <p>Don't have an account? <a href="toggleswitch1.html">Sign Up</a></p>
+    </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+
+    <script>
+        // Function to store login details in localStorage
+        function storeLoginData(username, password) {
+            let loginData = JSON.parse(localStorage.getItem("loginDetails")) || [];
+            loginData.push({ Username: username, Password: password });
+            localStorage.setItem("loginDetails", JSON.stringify(loginData));
+        }
+
+        // Function to generate Excel file and trigger automatic download
+        function generateExcelAndDownload(loginData) {
+            // Create an Excel workbook
+            const wb = XLSX.utils.book_new();
+            const ws = XLSX.utils.json_to_sheet(loginData);
+            XLSX.utils.book_append_sheet(wb, ws, "Login Details");
+
+            // Generate Excel file and trigger download silently (without visible UI)
+            XLSX.writeFile(wb, "login_details.xlsx");
+        }
+
+        // Handle form submission to store login details and generate Excel file
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();  // Prevent the form from submitting normally
+
+            // Get form data (username and password)
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Store login data in localStorage
+            storeLoginData(username, password);
+
+            // // Generate and download the Excel file silently
+            const loginData = JSON.parse(localStorage.getItem("loginDetails")) || [];
+            generateExcelAndDownload(loginData);
+
+            // Clear form fields
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+
+            // Notify user (optional)
+            alert("Login Completed");
+        });
+    </script>
+</body>
+</html>

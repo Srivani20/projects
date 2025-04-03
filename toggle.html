@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Toggle Switch for Login and Sign Up</title>
+    <link rel="stylesheet" href="toggle.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-container">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <!-- Toggle Switch in Navbar -->
+            <div class="toggle-switch">
+                <label class="switch">
+                    <input type="checkbox" id="toggleSwitch">
+                    <span class="slider"></span>
+                </label>
+                <span id="toggleLabel">Sign Up</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Forms Container -->
+    <div class="form-container">
+        <!-- Login Form -->
+        <div id="loginForm" class="form">
+            <h2>Login</h2>
+            <form>
+                <input type="text" id="loginUsername" placeholder="Username" required><br>
+                <input type="password" id="loginPassword" placeholder="Password" required><br>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <!-- Sign-Up Form -->
+        <div id="signupForm" class="form" style="display: none;">
+            <h2>Sign Up</h2>
+            <form>
+                <input type="text" id="signupUsername" placeholder="Username" required><br>
+                <input type="password" id="signupPassword" placeholder="Password" required><br>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required><br>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="toggle.js"></script>
+</body>
+</html>

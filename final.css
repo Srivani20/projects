@@ -1,0 +1,232 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    }
+    
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #020811;
+        color: #444;
+        background-image: url('https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg');
+    }
+    header {
+            /* background-image: url('https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?cs=srgb&dl=pexels-anjana-c-169994-674010.jpg&fm=jpg'); Set background image for the header */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 50px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            
+    
+    }
+    
+    header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+    }
+    nav {
+        /* background-color:#476086; */
+        text-align: Center;
+        padding: 12px 0;
+        /* background-image: url('https://img.lovepik.com/photo/48036/6746.jpg_wh860.jpg');
+         */
+
+        
+        
+        
+    }
+    .navbar {
+        /* background-color: rgba(0, 0, 0, 0.7); Semi-transparent background */
+        padding: 10px;
+        text-align: right;
+        justify-content: space-between; 
+
+    }
+    
+    nav ul {
+        list-style-type: none;
+        display: flex; /* Makes the list items display horizontally */
+        justify-content: center; /* Centers the navigation links */
+      }
+    nav a {
+        color: #fff1f1;
+        text-decoration: none;
+        margin: 0 20px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        letter-spacing: 0.5px;
+    }
+    nav a:hover {
+        color: #d87373;
+        text-decoration: none;
+    }
+    .home-section {
+
+        text-align: center;
+        padding: 120px 0;
+        color: white;
+        background-color:  #00000000;
+      }
+      
+      .home-section h1 {
+        font-size: 70px;
+        margin-bottom: 20px;
+      
+      }
+      
+      .home-section p {
+        font-size: 24px;
+      }
+      
+      .home-section .btn-primary {
+        background-color: #3c8dbc;
+        color: white;
+        padding: 5px 30px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 18px;
+      }
+      
+      .home-section .btn-primary:hover {
+        background-color: #357ab7;
+      }
+        
+        
+        /* Footer */
+        footer {
+          background-color: #333;
+          color: white;
+          text-align: center;
+          padding: 10px 0;
+        }
+        
+        footer p {
+          margin: 0;
+          padding-top: 10px;
+        }
+        .dropdown {
+          float: center;
+          overflow: hidden;
+        }
+        
+        /* .dropdown .dropbtn {
+          font-size: 12px;  
+          border: none;
+          outline: none;
+          color: white;
+          padding: 14px 16px;
+          background-color: inherit;
+          font: inherit;
+          margin: 0;
+        } */
+        
+        .navbar a:hover, .dropdown:hover .dropbtn {
+          background-color: rgb(248, 254, 255);
+        }
+        
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          /* background-color:  #e9e0e0; */
+          width: 100%;
+          left: 0;
+          z-index: 1;
+        }
+        
+        
+        .dropdown:hover .dropdown-content {
+          display: flex;
+        }
+        
+        /* Create three equal columns that floats next to each other */
+        .column {
+          float: left;
+          /* width: 33.33%; */
+          padding: 10px;
+          background-color: #dad6d6;
+          height: 250px;
+        }
+        
+        .column a {
+          float: none;
+          color: rgba(12, 10, 12, 0.993);
+          padding: 16px;
+          text-decoration: none;
+          display: block;
+          text-align: left;
+        }
+        
+        .column a:hover {
+          background-color: #ddd;
+        }
+        
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        /* Footer Styling */
+      .footer {
+          background-color: #333; /* Dark background for footer */
+          color: white;
+          padding: 20px 0;
+          text-align: center;
+          
+      }
+      /* User Rating Section */
+      .user-rating-section {
+          background-color: #13121200; /* Light background color */
+          padding: 40px 0; /* Padding around the section */
+          text-align: center;
+        }
+        
+        .user-rating-section h2 {
+          font-size: 28px;
+          margin-bottom: 20px;
+          color:#fff;
+        }
+        
+        .ratings {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        
+        .rating {
+          background-color: #fff;
+          padding: 20px;
+          margin: 10px;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          width: 280px;
+          text-align: left;
+          font-size: 16px;
+        }
+        
+        .rating p {
+          margin: 10px 0;
+        }
+        
+        .rating span {
+          font-style: italic;
+          color: #555;
+        }
+        
+        /* Optional: Add hover effect to ratings */
+        .rating:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+          transition: all 0.3s ease;
+        }
+      
+      .footer p {
+          margin: 0;
+
+      }
+      
